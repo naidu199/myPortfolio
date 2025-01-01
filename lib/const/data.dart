@@ -2,7 +2,12 @@ import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/app_model.dart';
 import 'package:portfolio/model/device_model.dart';
+import 'package:portfolio/model/project_details.dart';
+import 'package:portfolio/model/work_experience.dart';
 import 'package:portfolio/views/app_views/about.dart';
+import 'package:portfolio/views/app_views/contact_us.dart';
+import 'package:portfolio/views/app_views/experience_full.dart';
+import 'package:portfolio/views/app_views/projects.dart';
 import 'package:portfolio/views/app_views/skills.dart';
 
 List<DeviceModel> devices = [
@@ -29,52 +34,84 @@ List<AppModel> appModels = [
       appName: 'About',
       color: Colors.white,
       iconData: Icons.person,
+      assetPath: "assets/icons/about me.png",
       widget: const AboutScreen()),
-  AppModel(appName: 'Experience', color: Colors.white, iconData: Icons.person),
-  AppModel(appName: 'Projects', color: Colors.white, iconData: Icons.person),
+  AppModel(
+      appName: 'Experience',
+      color: Colors.white,
+      iconData: Icons.person,
+      assetPath: "assets/icons/experience.png",
+      widget: WorkExperienceFull(
+        experiences: workExperiences,
+      )),
+  AppModel(
+    appName: 'Projects',
+    color: Colors.white,
+    iconData: Icons.person,
+    assetPath: "assets/icons/project.png",
+    widget: Projects(
+      projectCards: projectCards,
+    ),
+  ),
   AppModel(
     appName: 'Resume',
     color: Colors.white,
     iconData: Icons.person,
     link: resume,
+    assetPath: "assets/icons/resume.png",
   ),
   AppModel(
       appName: 'Skills',
       color: Colors.white,
       iconData: Icons.person,
+      assetPath: "assets/icons/skills.png",
       widget: const SkillsScreen()),
-  AppModel(appName: 'Contact', color: Colors.white, iconData: Icons.person),
+  AppModel(
+    appName: 'Contact',
+    color: Colors.white,
+    iconData: Icons.person,
+    assetPath: "assets/icons/email.png",
+    widget: const CollaborationFormScreen(),
+  ),
   AppModel(
     appName: 'LinkedIn',
     color: Colors.white,
     iconData: Icons.person,
     link: linkedIn,
+    assetPath: "assets/icons/linkedin.png",
   ),
   AppModel(
     appName: 'GitHub',
     color: Colors.white,
     iconData: Icons.person,
     link: github,
+    assetPath: "assets/icons/github.png",
   ),
   AppModel(
     appName: 'LeetCode',
     color: Colors.white,
     iconData: Icons.person,
     link: leetCode,
+    assetPath: "assets/icons/leetcode.png",
   ),
   AppModel(
-    appName: 'GFG',
-    color: Colors.white,
-    iconData: Icons.person,
-    link: gfg,
-  ),
+      appName: 'GFG',
+      color: Colors.white,
+      iconData: Icons.person,
+      link: gfg,
+      assetPath: "assets/icons/gfg.png"),
   AppModel(
-    appName: 'Medium',
+      appName: 'Medium',
+      color: Colors.white,
+      iconData: Icons.person,
+      link: medium,
+      assetPath: "assets/icons/medium.png"),
+  AppModel(
+    appName: 'Info',
     color: Colors.white,
     iconData: Icons.person,
-    link: medium,
+    assetPath: "assets/icons/info.png",
   ),
-  AppModel(appName: 'Info', color: Colors.white, iconData: Icons.person),
 ];
 
 String linkedIn = "https://www.linkedin.com/in/narasimhanaidukorrapati/";

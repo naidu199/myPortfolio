@@ -3,15 +3,22 @@ import 'dart:async';
 import 'package:custom_button_builder/custom_button_builder.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/const/data.dart';
 import 'package:portfolio/model/color_model.dart';
+import 'package:portfolio/model/project_details.dart';
+import 'package:portfolio/model/work_experience.dart';
 import 'package:portfolio/providers/screen_state.dart';
+import 'package:portfolio/views/app_views/contact_us.dart';
 import 'package:portfolio/widgets/glass_container.dart';
+import 'package:portfolio/widgets/project_card.dart';
 import 'package:portfolio/widgets/quote_text.dart';
 import 'package:portfolio/widgets/screen_wrapper.dart';
 import 'package:provider/provider.dart';
+
+import 'app_views/experience.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -58,6 +65,19 @@ class HomePage extends StatelessWidget {
                             transform: Matrix4.identity()
                               ..setEntry(3, 2, 0.01)
                               ..rotateY(-0.06),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                      vertical: 16.0, horizontal: 20)
+                                  .copyWith(bottom: 4),
+                              child: WorkExperienceTimeline(
+                                experiences: workExperiences,
+                              ),
+                            ),
+
+                            // transform: Matrix4.identity()
+                            // ..setEntry(3, 2, 0.01)
+                            //       ..rotateY(-0.06),
+                            //  alignment: FractionalOffset.center,
                           ),
                           const SizedBox(height: 10),
                           // Bottom Left Glass Widget
@@ -95,7 +115,11 @@ class HomePage extends StatelessWidget {
                                   backgroundColor: Colors.deepPurpleAccent,
                                   width: 172,
                                   height: 40,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    state.setCurrentScreen(
+                                        const CollaborationFormScreen(), false);
+                                    state.title = "Let's Connect!";
+                                  },
                                   child: Text(
                                     "Let's Collaborate!",
                                     style: GoogleFonts.poppins(
@@ -167,6 +191,9 @@ class HomePage extends StatelessWidget {
                             title: '',
                             child: state.currentScreen,
                           ),
+                          // child: ProjectCard(
+                          //   project: projects[0],
+                          // ),
                         ),
                       ),
                       const SizedBox(width: 5),
@@ -212,7 +239,7 @@ class HomePage extends StatelessWidget {
                                   screenState: state,
                                 ),
 
-                                // const QuoteText()
+                                const QuoteText()
                                 // Text(
                                 //   "Coding is my Canvas, and Flutter is my Brush",
                                 //   textAlign: TextAlign.center,

@@ -52,11 +52,17 @@ class MobileScreen extends StatelessWidget {
                             }
                           }
                         },
-                        width: 62,
-                        height: 62,
-                        backgroundColor: appModels[index].color,
+                        width: 64,
+                        height: 64,
+                        // backgroundColor: appModels[index].color,
+                        backgroundColor: Colors.white.withOpacity(0.9),
                         child: appModels[index].assetPath != null
-                            ? Image.asset(appModels[index].assetPath!)
+                            ? Image.asset(
+                                fit: BoxFit.cover,
+                                appModels[index].assetPath!,
+                                width: 60,
+                                height: 60,
+                              )
                             : Center(
                                 child: Icon(
                                   appModels[index].iconData,

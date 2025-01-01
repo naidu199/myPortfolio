@@ -44,6 +44,12 @@ dependencies:
   webview_flutter_web: ^0.2.2
   url_launcher: ^6.3.1
   cached_network_image: ^3.4.1
+  timelines_plus: ^1.0.4
+  timeline_tile: ^2.0.0
+  http: ^1.2.2
+  gsform: ^0.3.7
+  stacked_card_carousel: ^0.0.4
+  vertical_card_pager: ^1.6.2
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +80,7 @@ flutter:
     - assets/skills/
     - assets/icons/
     - assets/projects/
+    - assets/logos/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

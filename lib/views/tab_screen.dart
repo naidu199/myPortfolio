@@ -42,19 +42,27 @@ class TabScreen extends StatelessWidget {
                             if (appModels[index].widget != null) {
                               state.setCurrentScreen(
                                   appModels[index].widget!, false);
+                              state.title = appModels[index].appName;
                             }
                           }
                         },
                         width: 96,
                         height: 96,
                         backgroundColor: appModels[index].color,
-                        child: Center(
-                          child: Icon(
-                            appModels[index].iconData,
-                            size: 48,
-                            color: Colors.black,
-                          ),
-                        ),
+                        child: appModels[index].assetPath != null
+                            ? Image.asset(
+                                fit: BoxFit.cover,
+                                appModels[index].assetPath!,
+                                width: 94,
+                                height: 94,
+                              )
+                            : Center(
+                                child: Icon(
+                                  appModels[index].iconData,
+                                  size: 48,
+                                  color: Colors.black,
+                                ),
+                              ),
                       ),
                       SizedBox(
                         width: 120,
