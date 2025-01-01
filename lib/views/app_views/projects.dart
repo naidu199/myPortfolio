@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/project_details.dart';
+import 'package:portfolio/providers/screen_state.dart';
 
 import 'package:portfolio/widgets/project_card.dart';
+import 'package:provider/provider.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
 import 'package:stacked_card_carousel/stacked_card_carousel.dart';
 
@@ -12,16 +14,18 @@ class Projects extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topCenter,
-      child: StackedCardCarousel(
-        // initialOffset: 10,
-        spaceBetweenItems: 600,
-        // type: StackedCardCarouselType.cardsStack,
-        type: StackedCardCarouselType.cardsStack,
-        items: projectCards,
-      ),
-    );
+    return Consumer<ScreenState>(builder: (context, state, _) {
+      return Align(
+        alignment: Alignment.topCenter,
+        child: StackedCardCarousel(
+          // initialOffset: 10,
+          spaceBetweenItems: state.isTabScreen ? 850 : 600,
+          // type: StackedCardCarouselType.cardsStack,
+          type: StackedCardCarouselType.cardsStack,
+          items: projectCards,
+        ),
+      );
+    });
 
     //   return Container(
     //     child: VerticalCardPager(

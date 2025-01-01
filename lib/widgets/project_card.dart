@@ -17,7 +17,7 @@ class ProjectCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
           child: Container(
             padding: const EdgeInsets.all(0),
-            width: 400,
+            width: state.isTabScreen ? 600 : 400,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24),
               color: Colors.white,
@@ -31,8 +31,8 @@ class ProjectCard extends StatelessWidget {
                     fit: BoxFit.fill,
                     project.imagePath,
                     // "assets/projects/sea1.png",
-                    height: 250,
-                    width: 400,
+                    height: state.isTabScreen ? 360 : 250,
+                    width: state.isTabScreen ? 600 : 400,
                   ),
                 ),
                 Padding(
@@ -40,9 +40,10 @@ class ProjectCard extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
+                        textAlign: TextAlign.center,
                         "${project.title} (${project.category})",
                         style: GoogleFonts.dmSans(
-                          fontSize: 24,
+                          fontSize: state.isTabScreen ? 36 : 24,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -50,7 +51,7 @@ class ProjectCard extends StatelessWidget {
                         textAlign: TextAlign.center,
                         project.description,
                         style: GoogleFonts.dmSans(
-                          fontSize: 20,
+                          fontSize: state.isTabScreen ? 30 : 20,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -81,7 +82,7 @@ class ProjectCard extends StatelessWidget {
                         child: Text(
                           project.technologies[index],
                           style: GoogleFonts.dmSans(
-                            fontSize: 16,
+                            fontSize: state.isTabScreen ? 24 : 16,
                             fontWeight: FontWeight.w500,
                             color: Colors.black,
                           ),
@@ -110,14 +111,14 @@ class ProjectCard extends StatelessWidget {
                               state.launchAppUrl(project.githubLink!);
                             }
                           },
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.code,
-                            size: 24,
+                            size: state.isTabScreen ? 36 : 24,
                           ),
-                          label: const Text(
+                          label: Text(
                             "GitHub",
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: state.isTabScreen ? 20 : 14,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -131,14 +132,16 @@ class ProjectCard extends StatelessWidget {
                               // launchUrl(Uri.parse(project.liveDemoLink!));
                             }
                           },
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.open_in_browser,
-                            size: 24,
+                            size: state.isTabScreen ? 36 : 24,
                           ),
-                          label: const Text(
+                          label: Text(
                             "Live Demo",
                             style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w600),
+                              fontSize: state.isTabScreen ? 20 : 14,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                     ],

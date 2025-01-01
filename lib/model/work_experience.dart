@@ -35,7 +35,7 @@ final List<WorkExperience> workExperiences = [
     company: 'Nexus Sparks',
     role: 'Co-Founder',
     description:
-        'At Nexus Sparks we believe in Transform Ideas into Projects. We innovate, compete, and empower our community by offering transformative courses that shape the future.',
+        'At Nexus Sparks we believe in Transform Ideas into Projects. We innovate, and empower our community by offering courses that shape the future.',
     duration: 'Aug 2024 - Present',
   ),
   WorkExperience(

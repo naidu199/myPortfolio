@@ -101,9 +101,10 @@ class WorkExperienceFull extends StatelessWidget {
                         Text(
                           experience.description,
                           style: GoogleFonts.dmSans(
-                              fontSize: state.isTabScreen ? 20 : 18,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
+                            fontSize: state.isTabScreen ? 20 : 18,
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xff123524),
+                          ),
                         ),
                         const SizedBox(height: 8),
                         Text(

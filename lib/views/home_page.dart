@@ -35,11 +35,11 @@ class HomePage extends StatelessWidget {
                 gradient: colorPalette[state.colorIndex].gradient,
               ),
             ),
-            SvgPicture.asset(
-              colorPalette[state.colorIndex].svgPath,
-              fit: BoxFit.cover,
-              height: size.height,
-            ),
+            // SvgPicture.asset(
+            //   colorPalette[state.colorIndex].svgPath,
+            //   fit: BoxFit.cover,
+            //   height: size.height,
+            // ),
             Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
