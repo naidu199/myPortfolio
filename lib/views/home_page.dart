@@ -360,7 +360,7 @@ class HomePage extends StatelessWidget {
               left: -30,
               bottom: -30,
               // alignment: Alignment.bottomLeft,
-              child: Container(
+              child: SizedBox(
                 // color: Colors.red,
                 child: LottieBuilder.asset(
                     fit: BoxFit.fill,
