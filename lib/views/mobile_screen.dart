@@ -20,76 +20,102 @@ class MobileScreen extends StatelessWidget {
           // decoration: BoxDecoration(
           //   gradient: colorPalette[state.colorIndex].gradient,
           // ),
-          child: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.start,
-            alignment: WrapAlignment.spaceEvenly,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              ...List.generate(
-                appModels.length,
-                (index) => Container(
-                  margin: const EdgeInsets.only(
-                    right: 10,
-                    top: 10,
-                    bottom: 20,
-                    left: 10,
-                  ),
-                  child: Column(
-                    children: [
-                      CustomButton(
-                        margin: const EdgeInsets.only(bottom: 5),
-                        borderRadius:
-                            state.deviceInfo == Devices.ios.iPhone13ProMax
-                                ? 8
-                                : 100,
-                        onPressed: () async {
-                          if (appModels[index].link != null) {
-                            await state.launchAppUrl(appModels[index].link!);
-                          } else {
-                            if (appModels[index].widget != null) {
-                              state.setCurrentScreen(
-                                  appModels[index].widget!, false);
-                              state.title = appModels[index].appName;
-                            }
-                          }
-                        },
-                        width: 64,
-                        height: 64,
-                        // backgroundColor: appModels[index].color,
-                        backgroundColor: Colors.white.withOpacity(0.9),
-                        child: appModels[index].assetPath != null
-                            ? Image.asset(
-                                fit: BoxFit.cover,
-                                appModels[index].assetPath!,
-                                width: 60,
-                                height: 60,
-                              )
-                            : Center(
-                                child: Icon(
-                                  appModels[index].iconData,
-                                  size: 36,
-                                  color: Colors.black,
+              Wrap(
+                crossAxisAlignment: WrapCrossAlignment.start,
+                alignment: WrapAlignment.spaceEvenly,
+                children: [
+                  ...List.generate(
+                    appModels.length,
+                    (index) => Container(
+                      margin: const EdgeInsets.only(
+                        right: 10,
+                        top: 10,
+                        bottom: 20,
+                        left: 10,
+                      ),
+                      child: Column(
+                        children: [
+                          CustomButton(
+                            margin: const EdgeInsets.only(bottom: 5),
+                            borderRadius:
+                                state.deviceInfo == Devices.ios.iPhone13ProMax
+                                    ? 8
+                                    : 100,
+                            onPressed: () async {
+                              if (appModels[index].link != null) {
+                                await state
+                                    .launchAppUrl(appModels[index].link!);
+                              } else {
+                                if (appModels[index].widget != null) {
+                                  state.setCurrentScreen(
+                                      appModels[index].widget!, false);
+                                  state.title = appModels[index].appName;
+                                }
+                              }
+                            },
+                            width: 64,
+                            height: 64,
+                            // backgroundColor: appModels[index].color,
+                            backgroundColor: Colors.white.withOpacity(0.9),
+                            child: appModels[index].assetPath != null
+                                ? Image.asset(
+                                    fit: BoxFit.cover,
+                                    appModels[index].assetPath!,
+                                    width: 60,
+                                    height: 60,
+                                  )
+                                : Center(
+                                    child: Icon(
+                                      appModels[index].iconData,
+                                      size: 36,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                          ),
+                          SizedBox(
+                            width: 86,
+                            child: Center(
+                              child: Text(
+                                appModels[index].appName,
+                                // overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                style: GoogleFonts.openSans(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
-                      ),
-                      SizedBox(
-                        width: 86,
-                        child: Center(
-                          child: Text(
-                            appModels[index].appName,
-                            // overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            style: GoogleFonts.openSans(
-                              fontSize: 16,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
+                ],
+              ),
+              const Spacer(),
+              Text(
+                "made by @naidu199",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                  shadows: [
+                    Shadow(
+                      offset: const Offset(2.0, 2.0),
+                      blurRadius: 3.0,
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                  ],
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              )
             ],
           ),
         );

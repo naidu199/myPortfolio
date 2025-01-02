@@ -5,12 +5,16 @@ import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:portfolio/const/data.dart';
 import 'package:portfolio/model/color_model.dart';
 import 'package:portfolio/model/work_experience.dart';
 import 'package:portfolio/providers/screen_state.dart';
 import 'package:portfolio/views/app_views/contact_us.dart';
+import 'package:portfolio/widgets/coding_table.dart';
 import 'package:portfolio/widgets/glass_container.dart';
+import 'package:portfolio/widgets/plane_animation.dart';
+import 'package:portfolio/widgets/plane_paper.dart';
 import 'package:portfolio/widgets/quote_text.dart';
 import 'package:portfolio/widgets/rive_bird.dart';
 import 'package:portfolio/widgets/screen_wrapper.dart';
@@ -38,6 +42,11 @@ class HomePage extends StatelessWidget {
             //   fit: BoxFit.cover,
             //   height: size.height,
             // ),
+            const PlaneAnimation(),
+            const PlaneAnimation(
+              isTop: true,
+            ),
+            const PlanePaperAnimation(),
             Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -45,6 +54,7 @@ class HomePage extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
+
                 SizedBox(
                   height: size.height - 80,
                   child: Row(
@@ -309,6 +319,7 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
+
                 const SizedBox(height: 10),
                 // Device Selection Buttons
                 Row(
@@ -344,7 +355,20 @@ class HomePage extends StatelessWidget {
             const Align(
               alignment: Alignment.bottomRight,
               child: RiveBirdAnimation(),
-            )
+            ),
+            Positioned(
+              left: -30,
+              bottom: -30,
+              // alignment: Alignment.bottomLeft,
+              child: Container(
+                // color: Colors.red,
+                child: LottieBuilder.asset(
+                    fit: BoxFit.fill,
+                    height: state.isTabScreen ? 280 : 320,
+                    width: state.isTabScreen ? 280 : 320,
+                    "assets/animations/lottie/coding_table.json"),
+              ),
+            ),
           ],
         ),
       );

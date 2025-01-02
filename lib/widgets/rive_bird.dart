@@ -17,7 +17,7 @@ class RiveBirdAnimation extends StatelessWidget {
         child: SizedBox(
           // color: Colors.red,
           height: 250,
-          width: 275,
+          width: 250,
           child: state.artboard != null
               ? Rive(artboard: state.artboard!)
               : const SizedBox(),

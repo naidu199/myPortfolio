@@ -60,8 +60,8 @@ class WorkExperienceFull extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     gradient: LinearGradient(
                       colors: [
-                        Colors.white.withOpacity(0.6),
-                        Colors.white.withOpacity(0.4),
+                        Colors.white.withOpacity(0.9),
+                        Colors.white.withOpacity(0.7),
                       ],
                     ),
                     boxShadow: <BoxShadow>[

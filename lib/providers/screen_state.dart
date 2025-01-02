@@ -9,6 +9,7 @@ import 'package:url_launcher/url_launcher.dart';
 class ScreenState extends ChangeNotifier {
   ScreenState() {
     loadAnimation(); //for the rive animation
+    // loadAnimationCodingTable();
   }
   DeviceInfo _deviceInfo = Devices.ios.iPhone13ProMax;
   DeviceInfo get deviceInfo => _deviceInfo;
@@ -64,7 +65,7 @@ class ScreenState extends ChangeNotifier {
     }
   }
 
-//Rive animation
+//Rive animation bird
 
   Artboard? artboard;
   SMIBool? isDance;
@@ -104,4 +105,6 @@ class ScreenState extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  //Rive animation coding table
 }
