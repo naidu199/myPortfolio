@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/const/data.dart';
 import 'package:portfolio/views/mobile_screen.dart';
 import 'package:portfolio/views/tab_screen.dart';
+import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ScreenState extends ChangeNotifier {
+  ScreenState() {
+    loadAnimation(); //for the rive animation
+  }
   DeviceInfo _deviceInfo = Devices.ios.iPhone13ProMax;
   DeviceInfo get deviceInfo => _deviceInfo;
   bool isTabScreen = false;
@@ -57,6 +61,47 @@ class ScreenState extends ChangeNotifier {
       await launchUrl(emailUri);
     } else {
       throw 'Could not found email';
+    }
+  }
+
+//Rive animation
+
+  Artboard? artboard;
+  SMIBool? isDance;
+  SMITrigger? isLookUp;
+  StateMachineController? controller;
+
+  final String asset = "assets/animations/rive/birb.riv";
+
+  Future<void> loadAnimation() async {
+    try {
+      final riveFile = await RiveFile.asset(asset);
+
+      final artboard = riveFile.mainArtboard;
+      controller = StateMachineController.fromArtboard(artboard, "birb");
+      if (controller != null) {
+        artboard.addController(controller!);
+        isDance = controller!.findSMI("dance");
+        isLookUp = controller!.findSMI("look up");
+      }
+      this.artboard = artboard;
+      notifyListeners();
+    } catch (e) {
+      debugPrint("Error loading rive file: $e");
+    }
+  }
+
+  void toggleDance() {
+    if (isDance != null) {
+      isDance!.value = !isDance!.value;
+      notifyListeners();
+    }
+  }
+
+  void toggleLookUp() {
+    if (isLookUp != null) {
+      isLookUp!.fire();
+      notifyListeners();
     }
   }
 }

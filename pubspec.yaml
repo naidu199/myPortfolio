@@ -50,6 +50,7 @@ dependencies:
   gsform: ^0.3.7
   stacked_card_carousel: ^0.0.4
   vertical_card_pager: ^1.6.2
+  rive: ^0.13.20
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +82,9 @@ flutter:
     - assets/icons/
     - assets/projects/
     - assets/logos/
+    - assets/animations/rive/
+    - assets/animations/lottie/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

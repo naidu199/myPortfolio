@@ -3,18 +3,16 @@ import 'dart:async';
 import 'package:custom_button_builder/custom_button_builder.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/const/data.dart';
 import 'package:portfolio/model/color_model.dart';
-import 'package:portfolio/model/project_details.dart';
 import 'package:portfolio/model/work_experience.dart';
 import 'package:portfolio/providers/screen_state.dart';
 import 'package:portfolio/views/app_views/contact_us.dart';
 import 'package:portfolio/widgets/glass_container.dart';
-import 'package:portfolio/widgets/project_card.dart';
 import 'package:portfolio/widgets/quote_text.dart';
+import 'package:portfolio/widgets/rive_bird.dart';
 import 'package:portfolio/widgets/screen_wrapper.dart';
 import 'package:provider/provider.dart';
 
@@ -226,10 +224,17 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   textAlign: TextAlign.center,
                                   fullName,
-                                  style: GoogleFonts.quintessential(
+                                  style: TextStyle(
                                     fontSize: 18,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w600,
                                     color: Colors.white,
+                                    shadows: [
+                                      Shadow(
+                                        offset: const Offset(1.0, 2.0),
+                                        blurRadius: 3.0,
+                                        color: Colors.black.withOpacity(0.5),
+                                      ),
+                                    ],
                                   ),
                                 ),
                                 const SizedBox(
@@ -247,6 +252,13 @@ class HomePage extends StatelessWidget {
                                 //       fontSize: 18,
                                 //       fontWeight: FontWeight.bold,
                                 //       color: Colors.deepOrangeAccent),
+                                //                     shadows: [
+                                //   Shadow(
+                                //     offset: const Offset(2.0, 2.0),
+                                //     blurRadius: 3.0,
+                                //     color: Colors.black.withOpacity(0.5),
+                                //   ),
+                                // ],
                                 // ),
                               ],
                             ),
@@ -283,6 +295,7 @@ class HomePage extends StatelessWidget {
                                         height: 50,
                                         onPressed: () {
                                           state.changeColorPallet(index);
+                                          state.toggleLookUp();
                                         },
                                       ),
                                     ),
@@ -328,6 +341,10 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
+            const Align(
+              alignment: Alignment.bottomRight,
+              child: RiveBirdAnimation(),
+            )
           ],
         ),
       );
@@ -394,6 +411,13 @@ class _TextAnimatorState extends State<TextAnimator> {
           fontSize: 18,
           fontWeight: FontWeight.bold,
           color: Colors.deepPurpleAccent.shade400,
+          shadows: [
+            Shadow(
+              offset: const Offset(1.0, 2.0),
+              blurRadius: 2.0,
+              color: Colors.white.withOpacity(0.8),
+            ),
+          ],
         ),
         // style: const TextStyle(),
       ),

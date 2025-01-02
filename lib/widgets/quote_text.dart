@@ -29,6 +29,13 @@ class QuoteText extends StatelessWidget {
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: Colors.white,
+            shadows: [
+              Shadow(
+                offset: const Offset(1.0, 2.0),
+                blurRadius: 2.0,
+                color: Colors.white.withOpacity(0.8),
+              ),
+            ],
           ),
         ),
       ),
