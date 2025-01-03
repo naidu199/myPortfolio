@@ -379,6 +379,7 @@ class HomePage extends StatelessWidget {
 class TextAnimator extends StatefulWidget {
   const TextAnimator({super.key, required this.screenState});
   final ScreenState screenState;
+
   @override
   State<TextAnimator> createState() => _TextAnimatorState();
 }
@@ -395,6 +396,7 @@ class _TextAnimatorState extends State<TextAnimator> {
   String displayedText = '';
   int currentIndex = 0;
   bool isTyping = true;
+  late Timer _typingTimer; // Declare the Timer instance
 
   @override
   void initState() {
@@ -403,7 +405,12 @@ class _TextAnimatorState extends State<TextAnimator> {
   }
 
   void startTypingAnimation() {
-    Timer.periodic(const Duration(milliseconds: 100), (timer) {
+    _typingTimer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
+      if (!mounted) {
+        timer.cancel(); // Cancel the timer if the widget is no longer mounted
+        return;
+      }
+
       if (isTyping) {
         if (displayedText.length < titles[currentIndex].length) {
           setState(() {
@@ -412,15 +419,23 @@ class _TextAnimatorState extends State<TextAnimator> {
         } else {
           isTyping = false;
           Timer(const Duration(seconds: 2), () {
-            setState(() {
-              displayedText = '';
-              isTyping = true;
-              currentIndex = (currentIndex + 1) % titles.length;
-            });
+            if (mounted) {
+              setState(() {
+                displayedText = '';
+                isTyping = true;
+                currentIndex = (currentIndex + 1) % titles.length;
+              });
+            }
           });
         }
       }
     });
+  }
+
+  @override
+  void dispose() {
+    _typingTimer.cancel(); // Cancel the timer when the widget is disposed
+    super.dispose();
   }
 
   @override
@@ -443,7 +458,6 @@ class _TextAnimatorState extends State<TextAnimator> {
             ),
           ],
         ),
-        // style: const TextStyle(),
       ),
     );
   }

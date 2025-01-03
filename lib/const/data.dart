@@ -7,6 +7,7 @@ import 'package:portfolio/model/work_experience.dart';
 import 'package:portfolio/views/app_views/about.dart';
 import 'package:portfolio/views/app_views/contact_us.dart';
 import 'package:portfolio/views/app_views/experience_full.dart';
+import 'package:portfolio/views/app_views/info_screen.dart';
 import 'package:portfolio/views/app_views/projects.dart';
 import 'package:portfolio/views/app_views/skills.dart';
 
@@ -111,6 +112,7 @@ List<AppModel> appModels = [
     color: Colors.white,
     iconData: Icons.person,
     assetPath: "assets/icons/info.png",
+    widget: const InfoScreen(),
   ),
 ];
 
