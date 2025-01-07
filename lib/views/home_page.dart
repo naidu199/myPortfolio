@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
                                       vertical: 16.0, horizontal: 20)
-                                  .copyWith(bottom: 4),
+                                  .copyWith(bottom: 0),
                               child: WorkExperienceTimeline(
                                 experiences: workExperiences,
                               ),

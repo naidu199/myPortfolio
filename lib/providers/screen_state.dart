@@ -22,7 +22,7 @@ class ScreenState extends ChangeNotifier {
     notifyListeners();
   }
 
-  int _colorIndex = 1;
+  int _colorIndex = 0;
   int get colorIndex => _colorIndex;
   void changeColorPallet(int index) {
     _colorIndex = index;

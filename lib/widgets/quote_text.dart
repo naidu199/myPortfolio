@@ -15,8 +15,12 @@ class QuoteText extends StatelessWidget {
           return const LinearGradient(
             colors: [
               // Colors.purpleAccent,
-              Color(0xFF312B2B),
+
               Color(0xFFCC342C),
+              Color(0xFF312B2B),
+              // Colors.teal
+              // Color(0xFF2AFEB7), // Bright mint green
+              // Color(0xFF39B4E6),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

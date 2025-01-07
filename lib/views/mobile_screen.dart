@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/const/data.dart';
 import 'package:portfolio/providers/screen_state.dart';
+import 'package:portfolio/views/app_views/info_screen.dart';
 import 'package:provider/provider.dart';
 
 class MobileScreen extends StatelessWidget {
@@ -44,7 +45,7 @@ class MobileScreen extends StatelessWidget {
                             borderRadius:
                                 state.deviceInfo == Devices.ios.iPhone13ProMax
                                     ? 8
-                                    : 100,
+                                    : 16,
                             onPressed: () async {
                               if (appModels[index].link != null) {
                                 await state
@@ -98,19 +99,24 @@ class MobileScreen extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Text(
-                "made by @naidu199",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  shadows: [
-                    Shadow(
-                      offset: const Offset(2.0, 2.0),
-                      blurRadius: 3.0,
-                      color: Colors.black.withOpacity(0.5),
-                    ),
-                  ],
+              GestureDetector(
+                onTap: () {
+                  state.setCurrentScreen(const InfoScreen(), false);
+                },
+                child: Text(
+                  "made by @naidu199",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    shadows: [
+                      Shadow(
+                        offset: const Offset(2.0, 2.0),
+                        blurRadius: 3.0,
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(

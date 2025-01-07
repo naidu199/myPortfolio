@@ -121,7 +121,7 @@ class InfoScreen extends StatelessWidget {
                   // Version
                   const InfoItem(
                     label: 'Version',
-                    value: '1.0.0',
+                    value: '1.0.1',
                     icon: Icons.info_outline,
                   ),
                 ],
@@ -152,7 +152,7 @@ class InfoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.05),
         borderRadius: BorderRadius.circular(12),
@@ -177,6 +177,7 @@ class InfoItem extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Text(
+                maxLines: 2,
                 value,
                 style: TextStyle(
                   fontSize: 18,
