@@ -29,3 +29,13 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+//deploy commits
+
+// git checkout gh-pages
+// cp -r build/web/* .
+// git add .
+// git commit -m "Update deployed Flutter app"
+// git push origin gh-pages
