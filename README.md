@@ -13,8 +13,8 @@ This portfolio showcases my journey as a developer, highlighting my skills, proj
 
 ## Technologies Used
 
-- **Frontend**: HTML, CSS, JavaScript, Flutter (for mobile app projects)
-- **Backend**: Node.js (for full-stack projects)
+- **Frontend**: Flutter
+- **Backend**: Flask 
 - **Hosting**: GitHub Pages (for portfolio hosting)
 - **Email Service**: EmailJS
 
