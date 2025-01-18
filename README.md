@@ -1,5 +1,4 @@
 # My Portfolio
-
 Welcome to my personal portfolio! 🎉  
 This portfolio showcases my journey as a developer, highlighting my skills, projects, and achievements in the fields of **Flutter**, **AI/ML**, and **Full-Stack Development**.
 
