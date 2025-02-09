@@ -132,7 +132,7 @@ String address =
 String aboutMe =
     "Flutter Developer, Competitive Programmer, Blogger, and Open Source Contributor";
 String resume =
-    "https://drive.google.com/file/d/1_S7kUj2zvHM97HkiEjgTtFi63ZTBalLf/view?usp=sharing";
+    "https://drive.google.com/file/d/1nn99lEF5RsmyAiKXIQPxQfQeTDSDUPyX/view?usp=sharing";
 String name = "K Thirumala Narasimha Naidu";
 String profession = "Flutter Developer";
 String profile1 = "assets/image/profile1.png";
