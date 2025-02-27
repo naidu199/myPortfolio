@@ -62,108 +62,114 @@ class _CollaborationFormScreenState extends State<CollaborationFormScreen> {
   @override
   Widget build(BuildContext context) {
     ContactService contactService = Provider.of<ContactService>(context);
+    Size size = MediaQuery.of(context).size;
     return Consumer<ScreenState>(builder: (context, state, _) {
-      return Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.blue.shade50,
-              Colors.purple.shade50,
-            ],
+      return SingleChildScrollView(
+        child: Container(
+          height: size.height,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.blue.shade50,
+                Colors.purple.shade50,
+              ],
+            ),
           ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AnimatedTextKit(
-                animatedTexts: [
-                  TypewriterAnimatedText(
-                    'Let\'s Collaborate!',
-                    textStyle: GoogleFonts.poppins(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.deepPurple,
-                    ),
-                    speed: const Duration(milliseconds: 100),
-                  ),
-                ],
-                totalRepeatCount: 1,
-              ),
-              const SizedBox(height: 30),
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    _buildAnimatedFormField(
-                      field: TextFormField(
-                        style: _inputTextStyle(),
-                        decoration: inputDecoration(
-                          hintText: 'Name',
-                          icon: Icons.person_outline,
-                        ),
-                        onSaved: (value) => name = value!,
-                        validator: (value) =>
-                            value!.isEmpty ? 'Please enter your name' : null,
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      'Let\'s Collaborate!',
+                      textStyle: GoogleFonts.poppins(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple,
                       ),
-                      delay: 200,
+                      speed: const Duration(milliseconds: 100),
                     ),
-                    const SizedBox(height: 20),
-                    _buildAnimatedFormField(
-                      field: TextFormField(
-                        style: _inputTextStyle(),
-                        decoration: inputDecoration(
-                          hintText: 'Email',
-                          icon: Icons.email_outlined,
-                        ),
-                        onSaved: (value) => email = value!,
-                        validator: (value) => !value!.contains('@')
-                            ? 'Please enter a valid email'
-                            : null,
-                      ),
-                      delay: 400,
-                    ),
-                    const SizedBox(height: 20),
-                    _buildAnimatedFormField(
-                      field: TextFormField(
-                        style: _inputTextStyle(),
-                        decoration: inputDecoration(
-                          hintText: 'Your Subject',
-                          icon: Icons.subject,
-                        ),
-                        maxLines: 2,
-                        onSaved: (value) => subject = value!,
-                        validator: (value) =>
-                            value!.isEmpty ? 'Please enter your subject' : null,
-                      ),
-                      delay: 600,
-                    ),
-                    const SizedBox(height: 20),
-                    _buildAnimatedFormField(
-                      field: TextFormField(
-                        style: _inputTextStyle(),
-                        decoration: inputDecoration(
-                          hintText: 'Your Message',
-                          icon: Icons.message_outlined,
-                        ),
-                        maxLines: 4,
-                        onSaved: (value) => message = value!,
-                        validator: (value) =>
-                            value!.isEmpty ? 'Please enter your message' : null,
-                      ),
-                      delay: 800,
-                    ),
-                    const SizedBox(height: 30),
-                    _buildSubmitButton(contactService: contactService),
-                    const SizedBox(height: 40),
-                    _buildSocialLinks(state),
                   ],
-                ).animate(delay: 300.ms).fadeIn(duration: 500.ms),
-              ),
-            ],
+                  totalRepeatCount: 1,
+                ),
+                const SizedBox(height: 30),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      _buildAnimatedFormField(
+                        field: TextFormField(
+                          style: _inputTextStyle(),
+                          decoration: inputDecoration(
+                            hintText: 'Name',
+                            icon: Icons.person_outline,
+                          ),
+                          onSaved: (value) => name = value!,
+                          validator: (value) =>
+                              value!.isEmpty ? 'Please enter your name' : null,
+                        ),
+                        delay: 200,
+                      ),
+                      const SizedBox(height: 20),
+                      _buildAnimatedFormField(
+                        field: TextFormField(
+                          style: _inputTextStyle(),
+                          decoration: inputDecoration(
+                            hintText: 'Email',
+                            icon: Icons.email_outlined,
+                          ),
+                          onSaved: (value) => email = value!,
+                          validator: (value) => !value!.contains('@')
+                              ? 'Please enter a valid email'
+                              : null,
+                        ),
+                        delay: 400,
+                      ),
+                      const SizedBox(height: 20),
+                      _buildAnimatedFormField(
+                        field: TextFormField(
+                          style: _inputTextStyle(),
+                          decoration: inputDecoration(
+                            hintText: 'Your Subject',
+                            icon: Icons.subject,
+                          ),
+                          maxLines: 2,
+                          onSaved: (value) => subject = value!,
+                          validator: (value) => value!.isEmpty
+                              ? 'Please enter your subject'
+                              : null,
+                        ),
+                        delay: 600,
+                      ),
+                      const SizedBox(height: 20),
+                      _buildAnimatedFormField(
+                        field: TextFormField(
+                          style: _inputTextStyle(),
+                          decoration: inputDecoration(
+                            hintText: 'Your Message',
+                            icon: Icons.message_outlined,
+                          ),
+                          maxLines: 4,
+                          onSaved: (value) => message = value!,
+                          validator: (value) => value!.isEmpty
+                              ? 'Please enter your message'
+                              : null,
+                        ),
+                        delay: 800,
+                      ),
+                      const SizedBox(height: 30),
+                      _buildSubmitButton(contactService: contactService),
+                      const SizedBox(height: 40),
+                      _buildSocialLinks(state),
+                    ],
+                  ).animate(delay: 300.ms).fadeIn(duration: 500.ms),
+                ),
+              ],
+            ),
           ),
         ),
       );

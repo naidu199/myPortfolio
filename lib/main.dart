@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
 
 
 
-//deploy commits
+//deploy
 
 // git checkout gh-pages
 // cp -r build/web/* .
