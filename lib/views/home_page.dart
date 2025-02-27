@@ -217,7 +217,7 @@ class HomePage extends StatelessWidget {
                             alignment: Alignment.bottomCenter,
                             transform: Matrix4.identity()
                               ..setEntry(3, 2, 0.01)
-                              ..rotateY(0.06), // Slight outward rotation
+                              ..rotateY(0.06),
                             child: Column(
                               children: [
                                 // CircleAvatar(
