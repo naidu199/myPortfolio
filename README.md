@@ -29,7 +29,7 @@ You can view my live portfolio [here](https://www.linkedin.com/posts/narasimhana
 
 1. Clone this repository to your local machine:
    ```bash
-   git clone [https://github.com/yourusername/portfolio.git](https://github.com/naidu199/myPortfolio.git)
+   git clone https://github.com/naidu199/myPortfolio.git
 2. Navigate to the project directory:
    ```bash
    cd myPortfolio
